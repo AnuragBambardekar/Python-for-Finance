@@ -1,8 +1,8 @@
 # Python for Finance
 
-**Program 1:** Introduction to yfinance
-**Program 2:** Visualizing Stock data using candlestick charts
-**Program 3:** Downloading Pricing data of S&P 500 companies
+**Program 1:** Introduction to yfinance <br>
+**Program 2:** Visualizing Stock data using candlestick charts <br>
+**Program 3:** Downloading Pricing data of S&P 500 companies <br>
 
 ### References:
 - https://www.youtube.com/playlist?list=PL7yh-TELLS1HJzPsb6Xjdse2zbyQ-ocDH - NeuralNine Series on Python for Finance
