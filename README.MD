@@ -3,6 +3,8 @@
 **Program 1:** Introduction to yfinance <br>
 **Program 2:** Visualizing Stock data using candlestick charts <br>
 **Program 3:** Downloading Pricing data of S&P 500 companies <br>
+**Program 4:** Polynomial Curve Fitting <br>
+**Program 5:** Polynomial Curve Fitting on Apple Stock<br>
 
 ### References:
 - https://www.youtube.com/playlist?list=PL7yh-TELLS1HJzPsb6Xjdse2zbyQ-ocDH - NeuralNine Series on Python for Finance
