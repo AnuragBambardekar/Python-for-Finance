@@ -3,10 +3,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the symbols for the S&P500 companies
-symbols = ['AAPL', 'MSFT', 'AMZN', 'GOOG', 'FB']
+symbols = ['AAPL', 'MSFT', 'AMZN', 'GOOG', 'META']
 
 # Download the historical stock prices for each symbol
-data = yf.download(symbols, start='2010-01-01', end='2022-02-27')['Adj Close']
+data = yf.download(symbols, start='2019-01-01', end='2023-02-28')['Adj Close']
 
 # Choose a stock to analyze
 stock_data = data['AAPL']
@@ -15,7 +15,7 @@ stock_data = data['AAPL']
 prices = stock_data.values
 
 # Perform polynomial curve fitting of degree 3
-coefficients = np.polyfit(range(len(prices)), prices, 3)
+coefficients = np.polyfit(range(len(prices)), prices, 4)
 
 # Create a polynomial function from the coefficients
 p = np.poly1d(coefficients)

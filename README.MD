@@ -5,6 +5,7 @@
 **Program 3:** Downloading Pricing data of S&P 500 companies <br>
 **Program 4:** Polynomial Curve Fitting <br>
 **Program 5:** Polynomial Curve Fitting on Apple Stock<br>
+**Program 5:** Finding the best Polynomial Curve Fit using AIC test<br>
 
 ### References:
 - https://www.youtube.com/playlist?list=PL7yh-TELLS1HJzPsb6Xjdse2zbyQ-ocDH - NeuralNine Series on Python for Finance
