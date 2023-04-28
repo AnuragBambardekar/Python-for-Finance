@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 symbols = ['AAPL', 'MSFT', 'AMZN', 'GOOG', 'META']
 
 # Download the historical stock prices for each symbol
-data = yf.download(symbols, start='2019-01-01', end='2023-02-28')['Adj Close']
+data = yf.download(symbols, start='2019-01-01', end='2023-04-27')['Adj Close']
 
 # Choose a stock to analyze
 stock_data = data['AAPL']
@@ -25,7 +25,7 @@ x_new = np.linspace(0, len(prices), 100)
 y_new = p(x_new)
 
 # Plot the data and the fitted curve
-plt.plot(range(len(prices)), prices, label='Data')
+plt.plot(range(len(prices)), prices, label=stock_data.name)
 plt.plot(x_new, y_new, label='Fitted Curve')
 plt.legend()
 plt.show()
