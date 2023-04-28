@@ -9,7 +9,7 @@ nltk.download('vader_lexicon')
 sia = SentimentIntensityAnalyzer()
 
 # Initialize News API client
-newsapi = NewsApiClient(api_key='51309dd5599e4c349ff05b29999110c3')
+newsapi = NewsApiClient(api_key='API_KEY')
 
 # Get the S&P 500 tickers
 sp500url = 'https://en.wikipedia.org/wiki/List_of_S%26P_500_companies'
