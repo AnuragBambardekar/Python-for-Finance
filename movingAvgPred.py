@@ -7,7 +7,7 @@ import matplotlib.style as style
 import matplotlib.dates as mdates
 from sklearn.ensemble import HistGradientBoostingRegressor
 from sklearn.experimental import enable_hist_gradient_boosting
-
+#MOVING AVG
 # Ask the user for the stock ticker symbol
 stock_ticker = input("Enter the stock ticker symbol: ")
 
@@ -65,35 +65,62 @@ else:
     # Calculate 200 day moving average
     predictions_df.loc[:,'MA_200'] = predictions_df['Close'].rolling(window=200).mean()
 
-    # Set the style to dark theme
-    style.use('dark_background')
+    # # Set the style to dark theme
+    # style.use('dark_background')
+
+    # # Create the plot
+    # fig, ax = plt.subplots()
+
+    # # Plot the predicted close prices for the next 30 days
+    # ax.plot(predictions_df.index, predictions_df['Close'], color='green' if predictions_df['Close'][-1] >= last_year['Close'][-1] else 'red', label='Predicted')
+
+    # # Plot the actual close prices for the last year
+    # ax.plot(last_year.index, last_year['Close'], color='b', label='Actual')
+
+    # ax.plot(predictions_df.index, predictions_df['MA_200'], color='white', label='200 Day MA')
+
+    # # Set x-axis as date format
+    # ax.xaxis.set_major_formatter(mdates.DateFormatter("%B %D %Y"))
+    # plt.xticks(rotation=45)
+
+    # # Set the x-axis label
+    # plt.xlabel('Date')
+
+    # # Set the y-axis label
+    # plt.ylabel('Price (USD)')
+
+    # # Set the plot title
+    # plt.title(stock_ticker + ' Moving Average Price Prediction')
+
+    # # Show the legend
+    # plt.legend()
+
+    # # Show the plot
+    # plt.show()
+
+    from bokeh.plotting import figure, show
+    from bokeh.models import DatetimeTickFormatter
 
     # Create the plot
-    fig, ax = plt.subplots()
+    fig = figure(title=stock_ticker + ' Moving Average Price Prediction',
+                x_axis_label='Date', y_axis_label='Price (USD)')
 
     # Plot the predicted close prices for the next 30 days
-    ax.plot(predictions_df.index, predictions_df['Close'], color='green' if predictions_df['Close'][-1] >= last_year['Close'][-1] else 'red', label='Predicted')
+    fig.line(x=predictions_df.index, y=predictions_df['Close'], line_color='green' if predictions_df['Close'][-1] >= last_year['Close'][-1] else 'red', legend_label='Predicted')
 
     # Plot the actual close prices for the last year
-    ax.plot(last_year.index, last_year['Close'], color='b', label='Actual')
+    fig.line(x=last_year.index, y=last_year['Close'], line_color='blue', legend_label='Actual')
 
-    ax.plot(predictions_df.index, predictions_df['MA_200'], color='white', label='200 Day MA')
+    # Plot the 200 Day MA
+    fig.line(x=predictions_df.index, y=predictions_df['MA_200'], line_color='orange', legend_label='200 Day MA')
 
     # Set x-axis as date format
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%B %D %Y"))
-    plt.xticks(rotation=45)
-
-    # Set the x-axis label
-    plt.xlabel('Date')
-
-    # Set the y-axis label
-    plt.ylabel('Price (USD)')
-
-    # Set the plot title
-    plt.title(stock_ticker + ' Moving Average Price Prediction')
+    fig.xaxis.formatter=DatetimeTickFormatter(months="%B %D %Y")
+    fig.xaxis.major_label_orientation = 45
 
     # Show the legend
-    plt.legend()
+    fig.legend.location = "top_left"
+    fig.legend.click_policy="hide"
 
     # Show the plot
-    plt.show()
+    show(fig)
