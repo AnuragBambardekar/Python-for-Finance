@@ -91,9 +91,6 @@ else:
         elif row['MACD_Line'] < row['Signal_Line']:
             predictions_df.at[i, 'Direction'] = 'down'
 
-    # Set the style to dark theme
-    style.use('dark_background')
-
     # Create the plot
     fig, axs = plt.subplots(2, 1,)
 
@@ -102,7 +99,7 @@ else:
     axs[0].plot(last_year.index, last_year['Close'], color='blue', label='Actual')
     axs[0].set_title(stock_ticker + " MACD Price Prediction")
     axs[0].set_xticks([])
-    axs[0].legend(loc='upper right')
+    axs[0].legend(loc='upper left')
 
     # Plot the MACD line, signal line, and histogram
     axs[1].plot(predictions_df.index, predictions_df['MACD_Line'], label='MACD Line', color='tab:green')
@@ -133,4 +130,18 @@ else:
     axs[1].set_ylabel('Moving Average Conver/Diver')
 
     # Show the plot
-    plt.show()
+    # plt.show()
+    # fig.savefig('plot.png')
+    import mpld3
+
+    html_fig = mpld3.fig_to_html(fig)
+    with open('plot.html', 'w') as f:
+        f.write(html_fig)
+
+
+    
+
+
+
+
+    
