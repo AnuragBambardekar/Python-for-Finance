@@ -6,7 +6,7 @@ import datetime as dt
 tickers = si.tickers_sp500()
 
 # compare performance of individual stocks with s&p500 as a whole
-
+# Screener
 start = dt.datetime.now() - dt.timedelta(days=365)
 end = dt.datetime.now()
 
